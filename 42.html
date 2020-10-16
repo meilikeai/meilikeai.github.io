@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>php生成唯一订单号-郭靖的爸爸的php博客</title>
+    <meta name="keywords" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
+    <meta name="description" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
+    <link rel="stylesheet" href="https://static.truefalse.net/static/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.truefalse.net/static/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/theme/default/css/common.css?v=20200921">
+    <script src="https://static.truefalse.net/static/lib/bootstrap-3.3.7/js/jquery.js"></script>
+    <link rel="stylesheet" href="/theme/default/js/common.js">
+    <link rel="canonical" href="//www.truefalse.net/">
+</head>
+<!--./theme/default/cont_news.html-->
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top"
+     style="background-image: url('https://static.truefalse.net/static/images/footer_bg.jpg');border: unset;background-size:100%">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand logo_img" href="/">
+                <img alt="Brand" src="https://static.truefalse.net/static/images/logo_white.png">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">程序<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="/php.html">PHP</a></li>
+                                                <li><a href="/web.html">前端</a></li>
+                                                <li><a href="/mysql.html">Mysql</a></li>
+                                                <li><a href="/wechat.html">微信</a></li>
+                                                <li><a href="/miniprogram.html">小程序</a></li>
+                                            </ul>
+                </li>
+                                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">服务器<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="/linux.html">linux</a></li>
+                                                <li><a href="/windows.html">windows</a></li>
+                                                <li><a href="/service.html">web服务器</a></li>
+                                            </ul>
+                </li>
+                                <li><a href="/other.html">其他</a></li>
+                                <li><a href="/about.html">关于我</a></li>
+                            </ul>
+            <form class="navbar-form navbar-left" action="/search.html" onsubmit="return check()">
+                <div class="form-group">
+                    <input type="search" class="form-control" placeholder="Search" name="keyword" id="search"
+                           value="">
+                </div>
+                <button type="submit" class="btn btn-default subBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<link rel="stylesheet" href="https://static.truefalse.net/static/editormd/css/editormd.preview.min.css"/>
+<!--主体区域开始-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 bread">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="//www.truefalse.net/">首页</a> &gt; <a href="/php.html">程序</a> &gt; <a href="/php.html">PHP</a>                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 no-padding-right">
+            <div class="panel panel-default bg_color margin20">
+                <h1 class="cont_title">php生成唯一订单号</h1>
+                <h5 class="btn-xs cont_sub">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> meilikeai0123&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 2020-07-15&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 288                </h5>
+                <div class="info_main">
+                    <div id="EditorMdview">
+                        <textarea id="demo1" style="display: none">```php
+<?php
+date_default_timezone_set('Asia/Shanghai');
+/**
+ * 生成唯一订单号
+ * @param string $prefix 订单号前缀
+ * @return string
+ */
+function uniqueOrderNum($prefix = 'jl_')
+{
+    $str = $prefix . strtoupper(date('YmdHis')) . substr(microtime(), 2, 8) . sprintf('%02d', rand(0, 99));
+    return $str;
+}
+
+function index()
+{
+    ini_set('memory_limit', '1024M');
+    $ii = [];
+    for ($i = 0; $i < 1100000; $i++) {
+        $ii[] = uniqueOrderNum();
+    }
+    echo count(array_unique($ii));
+}
+
+index();
+```</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--引入js文件-->
+<script src="https://static.truefalse.net/static/editormd/lib/marked.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/prettify.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/raphael.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/underscore.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/sequence-diagram.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/flowchart.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/jquery.flowchart.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/editormd.min.js"></script>
+<script src="/theme/default/js/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+    mdToHtml();
+</script>
+<!--主体区域结束-->
+<nav class="navbar navbar-default navbar-fixed-bottom footer visible-lg-block visible-md-block">
+    <div class="container">
+        <p>
+            <a href="/" rel="noopener noreferrer" class="text-info">TrueFalse</a>
+            © 2018-2020&nbsp;&nbsp;&nbsp;网站备案号：
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鄂ICP备17012136号-5&nbsp;&nbsp;&nbsp;</a>
+            网站CMS：<a href="http://jltech.cn/" target="_blank" rel="noopener noreferrer"
+                     class="text-info">京伦科技</a>&nbsp;&nbsp;&nbsp;
+            前端框架：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-info">Bootstrap</a>&nbsp;&nbsp;&nbsp;
+
+        </p>
+    </div>
+</nav>
+<footer class="bs-docs-footer visible-xs-block  visible-sm-block">
+    <div class="container">
+        <p>
+            <a href="/" rel="noopener noreferrer" class="text-info">TrueFalse</a>
+            © 2018-2020        </p>
+        <p>
+            网站备案号：
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鄂ICP备17012136号-5</a>
+        </p>
+        <p>
+            网站CMS：<a href="http://jltech.cn/" target="_blank" rel="noopener noreferrer"
+                     class="text-info">京伦科技</a>&nbsp;&nbsp;
+
+            前端框架：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-info">Bootstrap</a>
+        </p>
+    </div>
+</footer>
+<style>
+    #cnzz_stat_icon_1278084446 {
+        display: none;
+    }
+</style>
+<!--cnzz统计代码-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1278084446'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/z_stat.php%3Fid%3D1278084446' type='text/javascript'%3E%3C/script%3E"));</script>
+<!--百度自动推送代码-->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script src="https://static.truefalse.net/static/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
