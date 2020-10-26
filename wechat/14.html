@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微信sdk相关方法-学习的路还长~</title>
+    <meta name="keywords" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
+    <meta name="description" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
+    <link rel="stylesheet" href="https://static.truefalse.net/static/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.truefalse.net/static/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/static/common.css">
+    <script src="https://static.truefalse.net/static/lib/bootstrap-3.3.7/js/jquery.js"></script>
+    <link rel="stylesheet" href="/static/common.js">
+</head>
+<!--./theme/gitee/cont_news.html-->
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top"
+     style="background-image: url('https://static.truefalse.net/static/images/footer_bg.jpg');border: unset;background-size:100%">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand logo_img" href="/">
+                <img alt="Brand" src="https://static.truefalse.net/static/images/logo_white.png">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">程序<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="/php.html">PHP</a></li>
+                                                <li><a href="/web.html">前端</a></li>
+                                                <li><a href="/mysql.html">Mysql</a></li>
+                                                <li><a href="/wechat.html">微信</a></li>
+                                                <li><a href="/miniprogram.html">小程序</a></li>
+                                            </ul>
+                </li>
+                                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">服务器<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="/linux.html">linux</a></li>
+                                                <li><a href="/windows.html">windows</a></li>
+                                                <li><a href="/service.html">web服务器</a></li>
+                                            </ul>
+                </li>
+                                <li><a href="/other.html">其他</a></li>
+                                <li><a href="/about.html">关于我</a></li>
+                            </ul>
+        </div>
+    </div>
+</nav>
+
+<link rel="stylesheet" href="https://static.truefalse.net/static/editormd/css/editormd.preview.min.css"/>
+<!--主体区域开始-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 bread">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="https://meilikeai.github.io/">首页</a> &gt; <a href="/php.html">程序</a> &gt; <a href="/wechat.html">微信</a>                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 no-padding-right">
+            <div class="panel panel-default bg_color margin20">
+                <h1 class="cont_title">微信sdk相关方法</h1>
+                <h5 class="btn-xs cont_sub">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> meilikeai0123&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 2020-06-19&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 597                </h5>
+                <div class="info_main">
+                    <div id="EditorMdview">
+                        <textarea id="demo1" style="display: none">```php
+<?php
+
+/**
+ * Class Wechat微信类常用类
+ */
+class Wechat
+{
+    protected $appid = '';
+    protected $appsecret = '';
+    private static $key = '';
+
+    function __construct($appid, $appsecret)
+    {
+        $this->appid = $appid;
+        $this->appsecret = $appsecret;
+    }
+
+    /**
+     * 小程序解密手机号
+     * @param $session_key string 小程序session_key
+     * @param $encryptedData string 加密的数据
+     * @param $iv string 偏移量
+     * @return mixed|string
+     */
+    protected function decrypteMobile($session_key, $encryptedData, $iv)
+    {
+        $data = '';
+        require_once './wxlib/wxaes/wxBizDataCrypt.php';
+        $info = new \WXBizDataCrypt($this->appid, $session_key);
+        $errCode = $info->decryptData($encryptedData, $iv, $data);
+        $mobile = '';
+        //解密后的
+        if ($errCode == 0) {
+            $data = json_decode($data, true);
+            $mobile = $data['phoneNumber'];
+        }
+        return $mobile;
+    }
+
+    /**
+     * 支付回调
+     * 1、先查询是否支付成功
+     * 2、更改状态
+     * 2、记录日志
+     */
+    function payCallback()
+    {
+        $raw_xml = file_get_contents("php://input");
+        $info = json_decode(json_encode(simplexml_load_string($raw_xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        //支付成功时，先查询订单，然后再去更改订单状态
+        if ($info['result_code'] == 'SUCCESS' && $info['return_code'] === "SUCCESS") {
+            $out_trade_no = $info['out_trade_no'];
+            $result = self::inquire($out_trade_no);
+            if ($result !== true) {
+                echo "FAIL";
+                exit;
+            }
+            //这里去更改订单状态
+            $update = Order::updateOrderStatus($out_trade_no);
+            if ($update === true) {
+                echo 'SUCCESS';
+                exit;
+            }
+        }
+        echo "FAIL";
+        exit;
+    }
+
+    /**
+     * 查询订单
+     * @param $order_no
+     * @return bool
+     * @throws WxPayException
+     */
+    private static function inquire($order_no)
+    {
+        require_once './wxlib/wxpay/WxPay.Api.php';
+        require_once './wxlib/wxpay/WxPay.Config.php';
+        $input = new \WxPayOrderQuery();
+        $input->SetOut_trade_no($order_no);
+        $config = new \WxPayConfig();
+        $result = \WxPayApi::orderQuery($config, $input);
+        if (array_key_exists("return_code", $result) && array_key_exists("result_code", $result) && $result["return_code"] == "SUCCESS" && $result["result_code"] == "SUCCESS") {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 微信小程序支付
+     * @throws WxPayException
+     */
+    function pay()
+    {
+        $total_fee = 1;
+        $order_no = 'order_no';
+        $openid = 'openid';
+        //②、微信统一下单
+        require_once './wxlib/wxpay/WxPay.Api.php';
+        $input = new \WxPayUnifiedOrder();
+        $input->SetBody("光谷国际网球中心-场馆预约");
+        $input->SetOut_trade_no("$order_no");
+        $input->SetTotal_fee("$total_fee");
+        $input->SetNotify_url("http://wxtest.wuhanopen.org/callback/paycallback");
+        $input->SetTrade_type("JSAPI");
+        $input->SetOpenid($openid);
+        require_once './wxlib/wxpay/WxPay.Config.php';
+        $config = new \WxPayConfig();
+        $order = \WxPayApi::unifiedOrder($config, $input);
+        $parameters = array(
+            'appId' => parent::$appid, //小程序ID
+            'timeStamp' => '' . time() . '', //时间戳
+            'nonceStr' => \WxPayApi::getNonceStr(), //随机串
+            'package' => 'prepay_id=' . $order['prepay_id'], //数据包
+            'signType' => 'HMAC-SHA256'//签名方式
+        );
+        $parameters['paySign'] = $this->getSign($parameters);
+        parent::apiResult(200, 'success', $parameters);
+    }
+
+    private function getSign($Obj)
+    {
+        foreach ($Obj as $k => $v) {
+            $Parameters[$k] = $v;
+        }
+        //签名步骤一：按字典序排序参数
+        ksort($Parameters);
+        $String = $this->formatBizQueryParaMap($Parameters, false);
+        //签名步骤二：在string后加入KEY
+        $string = $String . "&key=" . self::$key;
+        //签名步骤三：MD5加密
+        $string = hash_hmac("sha256", $string, self::$key);
+        //签名步骤四：所有字符转为大写
+        return strtoupper($string);
+    }
+
+    /**
+     * 格式化参数，签名过程需要使用
+     * @param $paraMap
+     * @param $urlencode
+     * @return false|string
+     */
+    private function formatBizQueryParaMap($paraMap, $urlencode)
+    {
+        $buff = "";
+        ksort($paraMap);
+        foreach ($paraMap as $k => $v) {
+            if ($urlencode) {
+                $v = urlencode($v);
+            }
+
+            $buff .= $k . "=" . $v . "&";
+        }
+        $reqPar = '';
+        if (strlen($buff) > 0) {
+            $reqPar = substr($buff, 0, strlen($buff) - 1);
+        }
+        return $reqPar;
+    }
+
+    /**
+     * 产生随机字符串，不长于32位
+     * @param int $length
+     * @return string
+     */
+    private function createNoncestr($length = 32)
+    {
+        $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        $str = "";
+        for ($i = 0; $i < $length; $i++) {
+            $str .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
+        }
+        return $str;
+    }
+
+    /**
+     * 微信登录
+     */
+    function wxLogin()
+    {
+        //-------生成唯一随机串防CSRF攻击
+        $state = md5(uniqid(rand(), TRUE));
+        $_SESSION["wx_state"] = $state; //存到SESSION
+        $callback = urlencode('http://www.whrsm.com/weixin.php/login/callback');
+        $wxurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . $this->appid . "&redirect_uri={$callback}&response_type=code&scope=snsapi_userinfo&state={$state}#wechat_redirect";
+        header("Location: $wxurl");
+    }
+
+    /**
+     * 微信公众号登录回调
+     * @return mixed
+     */
+    public function wxLoginCallback()
+    {
+        //回调地址
+        if ($_GET['state'] != $_SESSION["wx_state"]) {
+            exit("5001");
+        }
+        //获取access_token和openid
+        $url1 = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $this->appid . '&secret=' . $this->appsecret . '&code=' . input('param.code') . '&grant_type=authorization_code';
+        $openid_info = $this->curl_request($url1);
+        //获取userinfo
+        $accesstoken_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" . $this->appid . '&secret=' . $this->appsecret;
+        $accesstoken_info = $this->curl_request($accesstoken_url);
+        $url2 = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$accesstoken_info['access_token']}&openid={$openid_info['openid']}&lang=zh_CN";
+        $user_info = $this->curl_request($url2);
+        //与数据库做对比保存信息
+        //......
+    }
+
+    private function curl_request($url)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        $json = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($json, true);
+    }
+}
+```</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--引入js文件-->
+<script src="https://static.truefalse.net/static/editormd/lib/marked.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/prettify.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/raphael.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/underscore.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/sequence-diagram.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/flowchart.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/jquery.flowchart.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/editormd.min.js"></script>
+<script src="/static/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+    mdToHtml();
+</script>
+<!--主体区域结束-->
+<nav class="navbar navbar-default navbar-fixed-bottom footer visible-lg-block visible-md-block">
+    <div class="container">
+        <p>
+            <a href="/" rel="noopener noreferrer" class="text-info">TrueFalse</a>
+            © 2018-2020&nbsp;&nbsp;&nbsp;网站备案号：
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鄂ICP备17012136号-5&nbsp;&nbsp;&nbsp;</a>
+            前端框架：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-info">Bootstrap</a>&nbsp;&nbsp;&nbsp;
+
+        </p>
+    </div>
+</nav>
+<footer class="bs-docs-footer visible-xs-block  visible-sm-block">
+    <div class="container">
+        <p>
+            <a href="/" rel="noopener noreferrer" class="text-info">TrueFalse</a>
+            © 2018-2020        </p>
+        <p>
+            网站备案号：
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鄂ICP备17012136号-5</a>
+        </p>
+        <p>
+            前端框架：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-info">Bootstrap</a>
+        </p>
+    </div>
+</footer>
+<script src="https://static.truefalse.net/static/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小程序-学习的路还长~</title>
+    <meta name="keywords" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
+    <meta name="description" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
+    <link rel="stylesheet" href="https://static.truefalse.net/static/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.truefalse.net/static/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/static/common.css">
+    <script src="https://static.truefalse.net/static/lib/bootstrap-3.3.7/js/jquery.js"></script>
+    <link rel="stylesheet" href="/static/common.js">
+</head>
+<!--./theme/gitee/list_news.html-->
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top"
+     style="background-image: url('https://static.truefalse.net/static/images/footer_bg.jpg');border: unset;background-size:100%">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand logo_img" href="/">
+                <img alt="Brand" src="https://static.truefalse.net/static/images/logo_white.png">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">程序<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="/php.html">PHP</a></li>
+                                                <li><a href="/web.html">前端</a></li>
+                                                <li><a href="/mysql.html">Mysql</a></li>
+                                                <li><a href="/wechat.html">微信</a></li>
+                                                <li><a href="/miniprogram.html">小程序</a></li>
+                                            </ul>
+                </li>
+                                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">服务器<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="/linux.html">linux</a></li>
+                                                <li><a href="/windows.html">windows</a></li>
+                                                <li><a href="/service.html">web服务器</a></li>
+                                            </ul>
+                </li>
+                                <li><a href="/other.html">其他</a></li>
+                                <li><a href="/about.html">关于我</a></li>
+                            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--主体区域开始-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 bread">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="https://meilikeai.github.io/">首页</a> &gt; <a href="/php.html">程序</a> &gt; <a href="/miniprogram.html">小程序</a>                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 no-padding-right">
+            <div class="panel panel-default bg_color margin20">
+                <h1 class="panel-heading">小程序</h1>
+                <div class="list-group">
+                                        <a href="/service/66.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk33agc1stj15m5j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">IIS http跳转到https</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-10-12</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/web/65.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk313ledtg10p9j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">js金额转中文大写</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-09-30</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/web/64.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk313ledtg10p9j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">js打印部分页面</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-09-27</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/web/63.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk313ledtg10p9j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">html2PDF</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-09-12</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/62.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">配置 PHP 的 Session 存储到 Redis</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-09-09</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/windows/61.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906jhci1cqh14t3j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">windows下安装redis扩展</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-09-09</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/miniprogram/59.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200820/1eg4kjvss1fsn1co0j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">保存base64图片到相册</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-08-20</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/miniprogram/58.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200820/1eg4kjvss1fsn1co0j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">小程序base64串转为图片</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-08-20</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/57.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP数组和对象互转</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-08-10</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/40.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP数组和xml互转</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/miniprogram/54.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200820/1eg4kjvss1fsn1co0j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">wxvalidate的使用</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-08-03</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/mysql/53.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906ikvtpvgb4lj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">mysql主从配置</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-08-03</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/56.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">php将远程图片转为base64</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-08-10</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/miniprogram/51.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200820/1eg4kjvss1fsn1co0j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">小程序合并分页请求数据</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-28</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/miniprogram/50.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200820/1eg4kjvss1fsn1co0j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">小程序utils.js封装</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-23</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/wechat/49.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk35dc9nut1pm2j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP操作微信退款</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-22</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/miniprogram/48.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200820/1eg4kjvss1fsn1co0j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">小程序初始化npm</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-22</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/mysql/47.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906ikvtpvgb4lj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">一次修改多条数据</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/52.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP添加文件进压缩包并下载</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-31</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/46.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">php curl包</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/45.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP生成uuid</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/44.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP上传图片base64到七牛</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/43.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">通过链接上传图片到七牛</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/42.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP生成唯一订单号</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/41.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP无限极递归</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/39.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP获取格式化显示时间</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/38.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP根据日期获取星座</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/37.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP DES加解密类</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/36.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP常用验证方法</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/web/35.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk313ledtg10p9j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">tp5  js实现输入跳转分页</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-15</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/34.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP查找字符串中是否含有图片</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-07-07</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/windows/32.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906jhci1cqh14t3j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">windows下安装memcache扩展</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-28</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/other/31.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200622/1ebdibl8j5jil2tj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">http状态码</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-28</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/other/30.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200622/1ebdibl8j5jil2tj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">修改ckeditor默认字体和大小</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-23</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/service/25.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk33agc1stj15m5j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">web服务器配置https</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/windows/24.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906jhci1cqh14t3j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">windows下mysql定时备份</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/windows/23.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906jhci1cqh14t3j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">wsl安装centos</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/linux/22.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906j62ecn8255j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">firewalld防火墙配置</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/linux/21.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906j62ecn8255j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">命令行常见问题</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/20.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP生成微信小程序带参数二维码</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/wechat/19.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk35dc9nut1pm2j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">微信公众号初始配置 url和token</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/wechat/18.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk35dc9nut1pm2j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP发送微信模板消息</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/wechat/17.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk35dc9nut1pm2j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP操作支付宝退款</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/wechat/16.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk35dc9nut1pm2j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">第三方QQ登录</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/wechat/15.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk35dc9nut1pm2j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP检测是否关注微信公众号</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/service/29.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk33agc1stj15m5j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">HTTP 413 错误 – 请求实体太大</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-22</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/wechat/14.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk35dc9nut1pm2j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">微信sdk相关方法</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/28.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP中CURL实现GET和POST请求</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-20</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/miniprogram/13.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200820/1eg4kjvss1fsn1co0j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">小程序请求封装</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/27.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP获取今天、明天、上周、本周、上月、本月、本季度、上季度时间段方法</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-20</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/mysql/12.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906ikvtpvgb4lj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">mysql order排序if判断</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/mysql/11.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200523/1e906ikvtpvgb4lj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">mysql查询重复数据及删除重复数据保存一条</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/9.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">php mb_strlen函数</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/web/10.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk313ledtg10p9j.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">jquery.form.js 的使用</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/8.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">解决phpqrcode直接输出图片问题</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/7.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">PHP下载图片保存到本地</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/6.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">thinkphp配合阿里云上传图片unlink图片失败</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/5.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">php将任意编码的内容转换成utf-8</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                        <a href="/php/4.html" class="list-group-item list-group-item2">
+                        <span class="type_info">
+                            <img src="https://static.truefalse.net/uploads/20200813/1efk2u3ivtinetaj.png" alt="" style="width: 100%">
+                        </span>
+                        <span class="info">
+                            <h4 class="list-group-item-heading">常用软件地址</h4>
+                            <span class="author">
+                                <p class="text-danger"></p>
+                                <p class="text-muted">2020-06-19</p>
+                            </span>
+                        </span>
+                    </a>
+                                    </div>
+            </div>
+                    </div>
+    </div>
+</div>
+<!--主体区域结束-->
+<nav class="navbar navbar-default navbar-fixed-bottom footer visible-lg-block visible-md-block">
+    <div class="container">
+        <p>
+            <a href="/" rel="noopener noreferrer" class="text-info">TrueFalse</a>
+            © 2018-2020&nbsp;&nbsp;&nbsp;网站备案号：
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鄂ICP备17012136号-5&nbsp;&nbsp;&nbsp;</a>
+            前端框架：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-info">Bootstrap</a>&nbsp;&nbsp;&nbsp;
+
+        </p>
+    </div>
+</nav>
+<footer class="bs-docs-footer visible-xs-block  visible-sm-block">
+    <div class="container">
+        <p>
+            <a href="/" rel="noopener noreferrer" class="text-info">TrueFalse</a>
+            © 2018-2020        </p>
+        <p>
+            网站备案号：
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鄂ICP备17012136号-5</a>
+        </p>
+        <p>
+            前端框架：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-info">Bootstrap</a>
+        </p>
+    </div>
+</footer>
+<script src="https://static.truefalse.net/static/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PHP发送微信模板消息-学习的路还长~</title>
+    <meta name="keywords" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
+    <meta name="description" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
+    <link rel="stylesheet" href="https://static.truefalse.net/static/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://static.truefalse.net/static/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/static/common.css">
+    <script src="https://static.truefalse.net/static/lib/bootstrap-3.3.7/js/jquery.js"></script>
+    <link rel="stylesheet" href="/static/common.js">
+</head>
+<!--./theme/gitee/cont_news.html-->
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top"
+     style="background-image: url('https://static.truefalse.net/static/images/footer_bg.jpg');border: unset;background-size:100%">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand logo_img" href="/">
+                <img alt="Brand" src="https://static.truefalse.net/static/images/logo_white.png">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">程序<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="/php.html">PHP</a></li>
+                                                <li><a href="/web.html">前端</a></li>
+                                                <li><a href="/mysql.html">Mysql</a></li>
+                                                <li><a href="/wechat.html">微信</a></li>
+                                                <li><a href="/miniprogram.html">小程序</a></li>
+                                            </ul>
+                </li>
+                                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">服务器<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="/linux.html">linux</a></li>
+                                                <li><a href="/windows.html">windows</a></li>
+                                                <li><a href="/service.html">web服务器</a></li>
+                                            </ul>
+                </li>
+                                <li><a href="/other.html">其他</a></li>
+                                <li><a href="/about.html">关于我</a></li>
+                            </ul>
+        </div>
+    </div>
+</nav>
+
+<link rel="stylesheet" href="https://static.truefalse.net/static/editormd/css/editormd.preview.min.css"/>
+<!--主体区域开始-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 bread">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="https://meilikeai.github.io/">首页</a> &gt; <a href="/php.html">程序</a> &gt; <a href="/wechat.html">微信</a>                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 no-padding-right">
+            <div class="panel panel-default bg_color margin20">
+                <h1 class="cont_title">PHP发送微信模板消息</h1>
+                <h5 class="btn-xs cont_sub">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> meilikeai0123&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 2020-06-19&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 544                </h5>
+                <div class="info_main">
+                    <div id="EditorMdview">
+                        <textarea id="demo1" style="display: none">```php
+<?php
+/**
+* 微信模板消息
+* @param $openid
+* @param $template_id
+* @param $msg
+* @return mixed
+*/
+public function wxMsg($openid, $template_id, $msg)
+{
+	$access_token = self::actionGetToken();
+	$template = array(
+		'touser' => $openid,
+		'template_id' => $template_id, //模板的id
+		'url' => $msg['url'],
+		'topcolor' => "#FF0000",
+		'data' => array(
+		'first' => array('value' => $msg['title'], 'color' => "#00008B"),
+		//函数传参过来的name
+		'keyword1' => array('value' => $msg['keyword1'], 'color' => '#00008B'),
+		'keyword2' => array('value' => $msg['keyword2'], 'color' => '#00008B'),
+		'keyword3' => array('value' => $msg['keyword3'], 'color' => '#00008B'),
+		'keyword4' => array('value' => $msg['keyword4'], 'color' => '#00008B'),
+		'keyword5' => array('value' => $msg['keyword5'], 'color' => '#00008B'),
+		'remark' => array('value' => $msg['remark'], 'color' => '#999999'),
+		)
+	);
+	$json_template = json_encode($template);
+	$url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" . $access_token;
+	return $this->actionCurlRequest($url, urldecode($json_template));
+}
+
+//获取token
+public static function actionGetToken()
+{
+	$url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=appid&secret=secret';
+	$res = json_decode(self::actionCurlRequest($url));
+	return $res->access_token;
+}
+
+//curl请求，支持post和get
+public function actionCurlRequest($url, $data = null)
+{
+	$curl = curl_init();
+	curl_setopt($curl, CURLOPT_URL, $url);
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+	if (!empty($data)) {
+	curl_setopt($curl, CURLOPT_POST, 1);
+	curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+	}
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	$output = curl_exec($curl);
+	curl_close($curl);
+	return $output;
+}
+```</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--引入js文件-->
+<script src="https://static.truefalse.net/static/editormd/lib/marked.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/prettify.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/raphael.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/underscore.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/sequence-diagram.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/flowchart.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/lib/jquery.flowchart.min.js"></script>
+<script src="https://static.truefalse.net/static/editormd/editormd.min.js"></script>
+<script src="/static/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+    mdToHtml();
+</script>
+<!--主体区域结束-->
+<nav class="navbar navbar-default navbar-fixed-bottom footer visible-lg-block visible-md-block">
+    <div class="container">
+        <p>
+            <a href="/" rel="noopener noreferrer" class="text-info">TrueFalse</a>
+            © 2018-2020&nbsp;&nbsp;&nbsp;网站备案号：
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鄂ICP备17012136号-5&nbsp;&nbsp;&nbsp;</a>
+            前端框架：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-info">Bootstrap</a>&nbsp;&nbsp;&nbsp;
+
+        </p>
+    </div>
+</nav>
+<footer class="bs-docs-footer visible-xs-block  visible-sm-block">
+    <div class="container">
+        <p>
+            <a href="/" rel="noopener noreferrer" class="text-info">TrueFalse</a>
+            © 2018-2020        </p>
+        <p>
+            网站备案号：
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鄂ICP备17012136号-5</a>
+        </p>
+        <p>
+            前端框架：<a href="https://v3.bootcss.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-info">Bootstrap</a>
+        </p>
+    </div>
+</footer>
+<script src="https://static.truefalse.net/static/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
