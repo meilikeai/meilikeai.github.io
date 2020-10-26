@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>小程序utils.js封装-学习的路还长~</title>
+    <title>PHP shell_exec命令的使用-学习的路还长~</title>
     <meta name="keywords" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
     <meta name="description" content="个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,thinkphp博客,php博客">
     <link rel="stylesheet" href="https://static.truefalse.net/static/lib/bootstrap-3.3.7/css/bootstrap.min.css">
@@ -68,156 +68,40 @@
         <div class="col-xs-12 col-md-12 bread">
             <ol class="breadcrumb">
                 <li>
-                    <a href="https://meilikeai.github.io/">首页</a> &gt; <a href="/php.html">程序</a> &gt; <a href="/miniprogram.html">小程序</a>                </li>
+                    <a href="https://meilikeai.github.io/">首页</a> &gt; <a href="/php.html">程序</a> &gt; <a href="/php.html">PHP</a>                </li>
             </ol>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-12 no-padding-right">
             <div class="panel panel-default bg_color margin20">
-                <h1 class="cont_title">小程序utils.js封装</h1>
+                <h1 class="cont_title">PHP shell_exec命令的使用</h1>
                 <h5 class="btn-xs cont_sub">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span> meilikeai0123&nbsp;&nbsp;&nbsp;
-                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 2020-07-23&nbsp;&nbsp;&nbsp;
-                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 606                </h5>
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 2020-10-26&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 3                </h5>
                 <div class="info_main">
                     <div id="EditorMdview">
-                        <textarea id="demo1" style="display: none">```javascript
-const formatTime = date => {
-    const year = date.getFullYear()
-    const month = date.getMonth() + 1
-    const day = date.getDate()
-    const hour = date.getHours()
-    const minute = date.getMinutes()
-    const second = date.getSeconds()
-
-    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-    n = n.toString()
-    return n[1] ? n : '0' + n
-}
-
-/**
- * 跳转连接封装
- */
-const gotoPage = (url, param) => { //例子：gotoPage(url,{param:param})
-    wx.navigateTo({
-        url: parseUrl(url, param)
-    })
-}
-const gotoTab = (url, param) => { //例子：gotoTab(url,{param:param})
-    wx.reLaunch({
-        url: parseUrl(url, param)
-    })
-}
-const backPage = (val) => { //返回堆栈上级页面层数 注:redirectTo页面不会将页面加入堆栈
-    //例子：backPage(num)//返回几层就输多少
-    wx.navigateBack({
-        delta: val
-    })
-}
-const parseUrl = (url, param) => {
-    if (typeof(param) !== "object") return url
-    var str = ''
-    for (let i in param) {
-        str += ('&' + i + '=' + param[i])
-    }
-    if (url.indexOf('?') > -1) {
-        return url + str
-    } else {
-        return url + '?' + str.substr(1)
-    }
-}
-
-/**
- * 缓存操作
- */
-const setCache = (key, data) => { //存
-    wx.setStorageSync(key, data)
-}
-const getCache = (key) => { //取
-    return wx.getStorageSync(key)
-}
-const rmCache = (key) => { //删
-    wx.removeStorageSync(key)
-}
-
-/**
- * 提示层
- */
-const showLoading = (title = '加载中...') => {
-    wx.showLoading({
-        title: title,
-        mask: true
-    })
-}
-const hideLoading = () => {
-    wx.hideLoading()
-}
-const showToast = (title = '操作成功', icon = 'none') => {
-    wx.showToast({
-        title,
-        icon,
-        duration: 1500,
-        mask: true
-    })
-}
-const hideToast = () => {
-    wx.hideToast()
-}
-
-/**
- * 获取经纬度
- * 使用方式 ：utils.getLocation(that);
- * 需要先开通腾讯地图api获取key开通小程序权限
- */
-const getLocation = (that) => {
-    wx.getLocation({
-        type: 'gcj02',
-        isHighAccuracy: true,
-        success(res) {
-            const latitude = res.latitude
-            const longitude = res.longitude
-                //根据坐标换取地址
-            var getAddressUrl = "https://apis.map.qq.com/ws/geocoder/v1/?location=" + res.latitude + "," + res.longitude + "&key=" + key;
-            wx.request({
-                url: getAddressUrl,
-                success: function(result) {
-					console.log(result)
-                    that.setData({
-                        address: result.data.result.address,
-                    });
-                }
-            })
-            that.setData({
-                latitude: latitude,
-                longitude: longitude,
-            });
-        }
-    });
-}
-
-export default {
-    formatTime: formatTime,
-    //页面跳转操作
-    gotoPage,
-    gotoTab,
-    backPage,
-    //缓存操作
-    setCache,
-    getCache,
-    rmCache,
-    //遮罩层操作
-    showLoading,
-    hideLoading,
-    showToast,
-    hideToast,
-    //获取地址信息
-    getLocation
-}
-```</textarea>
+                        <textarea id="demo1" style="display: none">##### 准备编写php执行git上传脚本
+	当使用shell_exec时，
+	
+	$path = '/www/wwwroot/truefalse/github/';
+	shell_exec($path);
+	echo shell_exec('pwd');
+	
+	当前路径并没有更改
+![](https://static.truefalse.net/uploads/20201026/5f9669eeaf467.png)
+##### 原因
+	每个要shell_exec在其当前命令中运行。因此，如果您执行cd，那只会影响该命令。
+	shel_exec('cd /some/where');实际上工作正常（将当前 shell_exec目录更改为其他目录），但完成后将不会保留在当前目录中shell_exec。这意味着下一个命令不会共享与调用相同的状态cd。
+	如果要更改目录，请使用chdir；
+	
+	$path = '/www/wwwroot/truefalse/github/';
+	echo shell_exec('pwd') . PHP_EOL;
+	chdir($path);
+	echo shell_exec('pwd') . PHP_EOL;
+![](https://static.truefalse.net/uploads/20201026/5f966b294d9fc.png)
+</textarea>
                     </div>
                 </div>
             </div>
