@@ -101,6 +101,27 @@
 	chdir($path);
 	echo shell_exec('pwd') . PHP_EOL;
 ![](https://static.truefalse.net/uploads/20201026/5f966b294d9fc.png)
+
+##### 完整git上传脚本
+```php
+<?php
+if (isset($_SERVER['SERVER_PROTOCOL'])) {
+    exit('error');
+}
+
+echo '----------------------bash start---------------------------------' . PHP_EOL;
+$param_arr = getopt('m:');
+$msg = $param_arr['m'] ? $param_arr['m'] : date('Y-m-d');
+echo 'commit msg ：' . $msg . PHP_EOL;
+$path = '/www/wwwroot/truefalse/github/';
+chdir($path);
+shell_exec('git add -A');
+shell_exec('git commit -m ' . $msg);
+shell_exec('git push');
+```
+```
+使用: php push.sh -m 'git上传测试'
+```
 </textarea>
                     </div>
                 </div>
